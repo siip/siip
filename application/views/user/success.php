@@ -1,0 +1,1 @@
+<?php echo anchor('home', 'Try it again!'); ?>

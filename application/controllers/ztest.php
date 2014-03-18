@@ -2,8 +2,6 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
-//use MainController;
-
 class Welcome extends CI_Controller {
 
 	public $em;
@@ -21,7 +19,7 @@ class Welcome extends CI_Controller {
 		$user = $this -> em -> find('Entity\User', 2);
 
 		//foreach ($users as $user) {
-		echo sprintf("-%s\n", $user -> getFirstname(). " <br/>");
+		echo sprintf("-%s\n", $user -> getFirstname() . " <br/>");
 		//}
 		$user = $this -> em -> getRepository('Entity\User') -> findOneBy(array('email' => 'paxm@gmail.com'));
 		echo $user -> getFirstname() . ' ' . $user -> getLastname() . ' is glad he isn\'t dealing with Symfony.<br />';
@@ -46,33 +44,12 @@ class Welcome extends CI_Controller {
 	}
 
 	public function test() {
-		/*$this -> load -> helper(array('form', 'url'));
-
-		$this -> load -> library('form_validation');
-
-		$this -> form_validation -> set_rules('username', 'Username', 'required');
-		$this -> form_validation -> set_rules('password', 'Password', 'required');
-		$this -> form_validation -> set_rules('passconf', 'Password Confirmation', 'required');
-		$this -> form_validation -> set_rules('email', 'Email', 'required');
-
-		if ($this -> form_validation -> run() == FALSE) {
-			$this -> load -> view('myform');
-		} else {
-			$this -> load -> view('formsuccess');
-		}
-
-		echo base_url();*/
-		$this -> load -> view('signup');
+		$this -> load -> view('ztest');
 	}
 
 	private function _submit_validate() {
-
-		// validation rules
 		$this -> form_validation -> set_rules('username', 'Username', 'required|alpha_numeric|min_length[6]|max_length[12]|unique[User.username]');
 		$this -> form_validation -> set_rules('email', 'E-mail', 'required|valid_email|unique[User.email]');
 	}
 
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

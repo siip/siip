@@ -1,0 +1,29 @@
+$config = array(
+                 'inscription' => array(
+                                    array(
+                                            'field' => 'firstname',
+                                            'label' => 'Prénom',
+                                            'rules' => 'required'
+                                         ),
+                                    array(
+                                            'field' => 'lastname',
+                                            'label' => 'Nom',
+                                            'rules' => 'required'
+                                         ),
+                                    array(
+                                            'field' => 'email',
+                                            'label' => 'Email',
+                                            'rules' => 'required|valid_email'
+                                         ),
+                                    array(
+                                            'field' => 'password',
+                                            'label' => 'Password',
+                                            'rules' => 'trim|required|matches[passconf]|md5'
+                                         ),
+                                    array(
+                                            'field' => 'passconf',
+                                            'label' => 'Password Confirmation',
+                                            'rules' => 'required'
+                                         )
+                                    )                        
+               );
